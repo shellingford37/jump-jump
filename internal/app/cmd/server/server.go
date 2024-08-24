@@ -8,7 +8,16 @@ import (
 	"github.com/jwma/jump-jump/internal/app/db"
 	"github.com/jwma/jump-jump/internal/app/routers"
 	"github.com/thoas/go-funk"
+	"golang.org/x/sync/errgroup"
+	"log"
 	"os"
+	"time"
+)
+
+var group errgroup.Group
+
+const (
+	flushToDbInterval = 5 * time.Second
 )
 
 func setupDB() error {
@@ -37,7 +46,7 @@ func Run(addr ...string) error {
 		return err
 	}
 
-	err = setupDB()
+	err = db.OpenMysql()
 
 	if err != nil {
 		return err
@@ -61,13 +70,37 @@ func RunLanding(addr ...string) error {
 		return err
 	}
 
+	err = db.OpenMysql()
+
+	if err != nil {
+		return err
+	}
+
 	err = config.SetupConfig(db.GetRedisClient())
 
 	if err != nil {
 		return err
 	}
 
+	group.Go(func() error {
+		log.Println("[FlushToDbLog] ticker starts to serve")
+		startFlushToDbTicker()
+		return nil
+	})
+
 	router := routers.SetupLandingRouter()
 	err = router.Run(addr...)
 	return err
+}
+
+func startFlushToDbTicker() {
+	flushToDbTicker := time.NewTicker(flushToDbInterval)
+	for range flushToDbTicker.C {
+		log.Println("[FlushToDbLog] Start.")
+		err := flushToDb()
+		if err != nil {
+			log.Printf("FlushToDbLog error %s", err)
+		}
+		log.Println("[FlushToDbLog] Finish.")
+	}
 }

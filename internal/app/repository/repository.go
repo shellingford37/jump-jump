@@ -283,6 +283,7 @@ func (r *shortLinkRepository) Get(id string) (*models.ShortLink, error) {
 	s := &models.ShortLink{}
 	rs, err := r.db.Get(key).Result()
 	if err != nil {
+
 		log.Printf("fail to get short Link with Key: %s, error: %v\n", key, err)
 		return s, fmt.Errorf("短链接不存在")
 	}
