@@ -82,6 +82,14 @@ type User struct {
 	CreateTime  time.Time `json:"create_time"`
 }
 
+type User2 struct {
+	Username   string    `json:"username"`
+	Role       int       `json:"role"`
+	Password   string    `json:"password"`
+	Salt       string    `json:"salt"`
+	CreateTime time.Time `json:"create_time"`
+}
+
 func (u *User) IsAdmin() bool {
 	return u.Role == RoleAdmin
 }

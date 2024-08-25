@@ -57,3 +57,53 @@ func (r *shortLinkMySqlRepository) SaveOrUpdate(link *models.ShortLink) error {
 	}
 	return nil
 }
+
+type userMySqlRepository struct {
+}
+
+var userMySqlRepo *userMySqlRepository
+
+func GetUserMySqRepo() *userMySqlRepository {
+	if userMySqlRepo == nil {
+		userMySqlRepo = &userMySqlRepository{}
+	}
+	return userMySqlRepo
+}
+
+func (r *userMySqlRepository) SaveOrUpdate(user *models.User2) error {
+	mysqlDB, err := db.GetMySql()
+	if err != nil {
+		return err
+	}
+	stmt, err := mysqlDB.Prepare("SELECT `id` FROM `user` where `username` = ? ")
+	if err != nil {
+		return err
+	}
+	defer stmt.Close()
+	var dbId int64
+	err = stmt.QueryRow(user.Username).Scan(&dbId)
+	if err != nil && !errors.Is(err, sql.ErrNoRows) {
+		return err
+	} else if err != nil && errors.Is(err, sql.ErrNoRows) {
+		stmt, err = mysqlDB.Prepare("INSERT INTO `user` (`username`, `role`, `password`, `salt`, `create_time`)  VALUES (?,?,?,?,?) ")
+		if err != nil {
+			return err
+		}
+		defer stmt.Close()
+		_, err = stmt.Exec(user.Username, user.Role, user.Password, user.Salt, user.CreateTime)
+		if err != nil {
+			return err
+		}
+	} else {
+		stmt, err = mysqlDB.Prepare("UPDATE `user` SET `role` = ?, `password` = ? , `salt` = ? , `create_time` = ? WHERE `id` = ? ")
+		if err != nil {
+			return err
+		}
+		defer stmt.Close()
+		_, err = stmt.Exec(user.Role, user.Password, user.Salt, user.CreateTime, dbId)
+		if err != nil {
+			return err
+		}
+	}
+	return nil
+}
