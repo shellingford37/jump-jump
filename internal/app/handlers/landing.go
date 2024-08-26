@@ -2,10 +2,10 @@ package handlers
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/jwma/jump-jump/internal/app/config"
-	"github.com/jwma/jump-jump/internal/app/db"
-	"github.com/jwma/jump-jump/internal/app/models"
-	"github.com/jwma/jump-jump/internal/app/repository"
+	"github.com/shellingford37/jump-jump/internal/app/config"
+	"github.com/shellingford37/jump-jump/internal/app/db"
+	"github.com/shellingford37/jump-jump/internal/app/models"
+	"github.com/shellingford37/jump-jump/internal/app/repository"
 	"log"
 	"net/http"
 	"os"
@@ -18,7 +18,7 @@ func LandingHome(c *gin.Context) {
 		c.Redirect(http.StatusTemporaryRedirect, home)
 	}
 
-	c.Redirect(http.StatusTemporaryRedirect, "https://github.com/jwma/jump-jump")
+	c.Redirect(http.StatusTemporaryRedirect, "https://github.com/shellingford37/jump-jump")
 }
 
 func Redirect(c *gin.Context) {

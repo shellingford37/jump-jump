@@ -2,7 +2,7 @@ package models
 
 import (
 	"encoding/json"
-	"github.com/jwma/jump-jump/internal/app/config"
+	"github.com/shellingford37/jump-jump/internal/app/config"
 	"time"
 )
 
@@ -117,7 +117,7 @@ func NewShortLink(createdBy string, r *CreateShortLinkAPIRequest) *ShortLink {
 type ShortLinkData struct {
 	Id string `json:"id" example:"RANDOM_ID" format:"string"`
 	// 目标链接
-	Url string `json:"url" example:"https://github.com/jwma/jump-jump" format:"string"`
+	Url string `json:"url" example:"https://github.com/shellingford37/jump-jump" format:"string"`
 
 	// 描述
 	Description string `json:"description" example:"Jump Jump project" format:"string"`
@@ -160,7 +160,7 @@ type CreateShortLinkAPIRequest struct {
 	Id string `json:"id" format:"string" example:"RANDOM_ID"`
 
 	// 目标链接
-	Url string `json:"url" example:"https://github.com/jwma/jump-jump"`
+	Url string `json:"url" example:"https://github.com/shellingford37/jump-jump"`
 
 	// 描述
 	Description string `json:"description" example:"Jump Jump project"`
@@ -186,7 +186,7 @@ type UpdateShortLinkAPIResponseData struct {
 
 type UpdateShortLinkAPIRequest struct {
 	// 目标链接
-	Url string `json:"url" binding:"required" example:"https://github.com/jwma/jump-jump"`
+	Url string `json:"url" binding:"required" example:"https://github.com/shellingford37/jump-jump"`
 
 	// 描述
 	Description string `json:"description" example:"Jump Jump project"`

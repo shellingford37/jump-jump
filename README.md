@@ -4,8 +4,8 @@
 
 <p align="center"><em>开箱即用，Golang 开发的一个功能完善的短链接系统。</em></p>
 <p align="center">
-  <a href="https://github.com/jwma/jump-jump/workflows/CI/badge.svg?branch=master" target="_blank">
-    <img src="https://github.com/jwma/jump-jump/workflows/CI/badge.svg?branch=master">
+  <a href="https://github.com/shellingford37/jump-jump/workflows/CI/badge.svg?branch=master" target="_blank">
+    <img src="https://github.com/shellingford37/jump-jump/workflows/CI/badge.svg?branch=master">
   </a>
   <a href="https://img.shields.io/github/license/mashape/apistatus.svg" target="_blank">
       <img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="license">
@@ -46,7 +46,7 @@
 
 ```shell script
 # 克隆或下载项目源码到本地
-git clone https://github.com/jwma/jump-jump.git
+git clone https://github.com/shellingford37/jump-jump.git
 
 # 进入项目源码目录
 cd jump-jump/
@@ -103,7 +103,7 @@ docker-compose -f deployments/docker-compose.yaml -p jumpjump exec apiserver ./c
 
 ## 接口文档
 
-使用 Swagger UI 提供了一个可调试文档，具体使用方法查看这个 [PR](https://github.com/jwma/jump-jump/pull/40)，希望这份文档能够帮助
+使用 Swagger UI 提供了一个可调试文档，具体使用方法查看这个 [PR](https://github.com/shellingford37/jump-jump/pull/40)，希望这份文档能够帮助
 到大家！
 
 ## 感谢

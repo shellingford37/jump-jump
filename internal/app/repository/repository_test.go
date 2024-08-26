@@ -2,9 +2,9 @@ package repository
 
 import (
 	"github.com/go-redis/redis"
-	"github.com/jwma/jump-jump/internal/app/config"
-	"github.com/jwma/jump-jump/internal/app/models"
-	"github.com/jwma/jump-jump/internal/app/utils"
+	"github.com/shellingford37/jump-jump/internal/app/config"
+	"github.com/shellingford37/jump-jump/internal/app/models"
+	"github.com/shellingford37/jump-jump/internal/app/utils"
 	"testing"
 	"time"
 )

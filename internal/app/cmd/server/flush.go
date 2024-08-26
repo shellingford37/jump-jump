@@ -3,10 +3,10 @@ package server
 import (
 	"encoding/json"
 	"github.com/go-redis/redis"
-	"github.com/jwma/jump-jump/internal/app/db"
-	"github.com/jwma/jump-jump/internal/app/models"
-	"github.com/jwma/jump-jump/internal/app/repository"
-	"github.com/jwma/jump-jump/internal/app/utils"
+	"github.com/shellingford37/jump-jump/internal/app/db"
+	"github.com/shellingford37/jump-jump/internal/app/models"
+	"github.com/shellingford37/jump-jump/internal/app/repository"
+	"github.com/shellingford37/jump-jump/internal/app/utils"
 	"log"
 	"time"
 )

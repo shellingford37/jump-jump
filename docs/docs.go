@@ -25,7 +25,7 @@ var doc = `{
         },
         "license": {
             "name": "MIT",
-            "url": "https://github.com/jwma/jump-jump/blob/master/LICENSE"
+            "url": "https://github.com/shellingford37/jump-jump/blob/master/LICENSE"
         },
         "version": "{{.Version}}"
     },
@@ -767,7 +767,7 @@ var doc = `{
                 "url": {
                     "description": "目标链接",
                     "type": "string",
-                    "example": "https://github.com/jwma/jump-jump"
+                    "example": "https://github.com/shellingford37/jump-jump"
                 }
             }
         },
@@ -960,7 +960,7 @@ var doc = `{
                     "description": "目标链接",
                     "type": "string",
                     "format": "string",
-                    "example": "https://github.com/jwma/jump-jump"
+                    "example": "https://github.com/shellingford37/jump-jump"
                 }
             }
         },
@@ -1059,7 +1059,7 @@ var doc = `{
                 "url": {
                     "description": "目标链接",
                     "type": "string",
-                    "example": "https://github.com/jwma/jump-jump"
+                    "example": "https://github.com/shellingford37/jump-jump"
                 }
             }
         },

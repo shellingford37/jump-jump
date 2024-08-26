@@ -2,8 +2,8 @@ package config
 
 import (
 	"github.com/go-redis/redis"
-	"github.com/jwma/jump-jump/internal/app/utils"
 	"github.com/jwma/reborn"
+	"github.com/shellingford37/jump-jump/internal/app/utils"
 	"time"
 )
 

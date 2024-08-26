@@ -31,7 +31,7 @@ definitions:
         type: boolean
       url:
         description: 目标链接
-        example: https://github.com/jwma/jump-jump
+        example: https://github.com/shellingford37/jump-jump
         type: string
     type: object
   CreateShortLinkAPIResponseData:
@@ -170,7 +170,7 @@ definitions:
         type: string
       url:
         description: 目标链接
-        example: https://github.com/jwma/jump-jump
+        example: https://github.com/shellingford37/jump-jump
         format: string
         type: string
     type: object
@@ -240,7 +240,7 @@ definitions:
         type: boolean
       url:
         description: 目标链接
-        example: https://github.com/jwma/jump-jump
+        example: https://github.com/shellingford37/jump-jump
         type: string
     required:
     - url
@@ -257,7 +257,7 @@ info:
     url: https://www.linkedin.com/in/mj-profile/
   license:
     name: MIT
-    url: https://github.com/jwma/jump-jump/blob/master/LICENSE
+    url: https://github.com/shellingford37/jump-jump/blob/master/LICENSE
 paths:
   /config:
     get:

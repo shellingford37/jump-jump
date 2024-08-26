@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/jwma/jump-jump/internal/app/db"
-	"github.com/jwma/jump-jump/internal/app/report"
+	"github.com/shellingford37/jump-jump/internal/app/db"
+	"github.com/shellingford37/jump-jump/internal/app/report"
 	"os"
 	"os/signal"
 	"syscall"

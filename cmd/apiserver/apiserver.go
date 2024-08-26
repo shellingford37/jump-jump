@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/jwma/jump-jump/internal/app/cmd/server"
+	"github.com/shellingford37/jump-jump/internal/app/cmd/server"
 	"os"
 )
 

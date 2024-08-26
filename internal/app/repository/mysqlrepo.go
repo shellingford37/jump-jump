@@ -3,8 +3,8 @@ package repository
 import (
 	"database/sql"
 	"errors"
-	"github.com/jwma/jump-jump/internal/app/db"
-	"github.com/jwma/jump-jump/internal/app/models"
+	"github.com/shellingford37/jump-jump/internal/app/db"
+	"github.com/shellingford37/jump-jump/internal/app/models"
 	"time"
 )
 

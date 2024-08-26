@@ -1,4 +1,4 @@
-module github.com/jwma/jump-jump
+module github.com/shellingford37/jump-jump
 
 go 1.13
 

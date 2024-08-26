@@ -4,8 +4,8 @@ import (
 	"github.com/gin-contrib/cors"
 	"github.com/gin-contrib/gzip"
 	"github.com/gin-gonic/gin"
-	docs "github.com/jwma/jump-jump/docs"
-	"github.com/jwma/jump-jump/internal/app/handlers"
+	docs "github.com/shellingford37/jump-jump/docs"
+	"github.com/shellingford37/jump-jump/internal/app/handlers"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 	"net/http"
@@ -22,7 +22,7 @@ import (
 // @contact.email m.mjw.ma@gmail.com
 
 // @license.name MIT
-// @license.url https://github.com/jwma/jump-jump/blob/master/LICENSE
+// @license.url https://github.com/shellingford37/jump-jump/blob/master/LICENSE
 
 func getAPIDocBasicAccounts() gin.Accounts {
 	defaultUsername := "apidoc"

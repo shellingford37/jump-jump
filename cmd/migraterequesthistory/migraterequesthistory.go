@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/go-redis/redis"
-	"github.com/jwma/jump-jump/internal/app/db"
-	"github.com/jwma/jump-jump/internal/app/models"
-	"github.com/jwma/jump-jump/internal/app/utils"
+	"github.com/shellingford37/jump-jump/internal/app/db"
+	"github.com/shellingford37/jump-jump/internal/app/models"
+	"github.com/shellingford37/jump-jump/internal/app/utils"
 	"sync"
 )
 

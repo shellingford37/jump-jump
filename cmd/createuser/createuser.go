@@ -3,9 +3,9 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/jwma/jump-jump/internal/app/db"
-	"github.com/jwma/jump-jump/internal/app/models"
-	"github.com/jwma/jump-jump/internal/app/repository"
+	"github.com/shellingford37/jump-jump/internal/app/db"
+	"github.com/shellingford37/jump-jump/internal/app/models"
+	"github.com/shellingford37/jump-jump/internal/app/repository"
 	"os"
 	"strings"
 )

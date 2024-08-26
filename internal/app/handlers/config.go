@@ -2,8 +2,8 @@ package handlers
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/jwma/jump-jump/internal/app/config"
-	"github.com/jwma/jump-jump/internal/app/models"
+	"github.com/shellingford37/jump-jump/internal/app/config"
+	"github.com/shellingford37/jump-jump/internal/app/models"
 	"github.com/thoas/go-funk"
 	"net/http"
 )
