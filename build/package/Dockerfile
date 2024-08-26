@@ -1,5 +1,5 @@
 # build stage
-FROM golang:1.13-alpine as builder
+FROM golang:1.20-alpine as builder
 
 LABEL maintainer="m.mjw.ma@gmail.com"
 
