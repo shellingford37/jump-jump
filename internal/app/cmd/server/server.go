@@ -17,7 +17,7 @@ import (
 var group errgroup.Group
 
 const (
-	flushToDbInterval = 5 * time.Second
+	flushToDbInterval = 1 * time.Minute
 )
 
 func setupDB() error {
