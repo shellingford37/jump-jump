@@ -102,6 +102,7 @@ func flushDiffSortLinksToDb() {
 		return
 	}
 	shortLinkRepo := repository.GetShortLinkMySqRepo()
+	shortLinkHistoryMySqlRepo := repository.GetShortLinkHistoryMySqlRepo()
 	for linkId, _ := range diffRhash {
 		key := utils.GetShortLinkKey(linkId)
 		existFlag, err := redisClient.Exists(key).Result()
@@ -115,6 +116,7 @@ func flushDiffSortLinksToDb() {
 				log.Printf("[FlushDiffToDbLog] 短链%s写入数据库失败，error: %v\n", linkId, err)
 				continue
 			}
+			shortLinkHistoryMySqlRepo.DeleteByLinkId(linkId)
 		} else {
 			s := &models.ShortLink{}
 			rs, err := redisClient.Get(key).Result()

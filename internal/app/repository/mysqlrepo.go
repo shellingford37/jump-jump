@@ -212,6 +212,23 @@ func GetShortLinkHistoryMySqlRepo() *shortLinkHistoryMySqlRepository {
 	return shortLinkHistoryMySqlRepo
 }
 
+func (r *shortLinkHistoryMySqlRepository) DeleteByLinkId(linkId string) error {
+	mysqlDB, err := db.GetMySql()
+	if err != nil {
+		return err
+	}
+	stmt, err := mysqlDB.Prepare("DELETE FROM `request_history` where link_id =? ")
+	if err != nil {
+		return err
+	}
+	defer stmt.Close()
+	_, err = stmt.Exec(linkId)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
 func (r *shortLinkHistoryMySqlRepository) SaveOrUpdate(linkId string, rh *models.RequestHistory) error {
 	mysqlDB, err := db.GetMySql()
 	if err != nil {
