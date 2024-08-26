@@ -153,6 +153,7 @@ func (r *userRepository) UpdatePassword(u *models.User) error {
 
 	j, _ := json.Marshal(u)
 	r.db.HSet(utils.GetUserKey(), u.Username, j)
+	r.db.HSet(utils.GetDiffUsersKey(), u.Username, "1")
 	return nil
 }
 
@@ -244,6 +245,8 @@ func (r *shortLinkRepository) save(s *models.ShortLink, isUpdate bool) error {
 		return errors.New("服务器繁忙，请稍后再试")
 	}
 
+	r.db.HSet(utils.GetDiffShortLinkKey(), s.Id, "1")
+
 	return nil
 }
 
@@ -272,6 +275,7 @@ func (r *shortLinkRepository) Delete(s *models.ShortLink) {
 	// 删除访问历史和报表
 	r.db.Del(utils.GetRequestHistoryKey(s.Id))
 	r.db.Del(utils.GetDailyReportKey(s.Id))
+	r.db.HSet(utils.GetDiffShortLinkKey(), s.Id, "1")
 }
 
 func (r *shortLinkRepository) Get(id string) (*models.ShortLink, error) {

@@ -58,6 +58,20 @@ func Run(addr ...string) error {
 		return err
 	}
 
+	flushToDbFlag := os.Getenv("REDIS_TO_MYSQL")
+	if flushToDbFlag == "true" {
+		err = flushToDb()
+		if err != nil {
+			return err
+		}
+	}
+
+	group.Go(func() error {
+		log.Println("[flushDiffToDb] ticker starts to serve")
+		startFlushDiffToDbTicker()
+		return nil
+	})
+
 	router := routers.SetupRouter()
 	err = router.Run(addr...)
 	return err
@@ -82,25 +96,19 @@ func RunLanding(addr ...string) error {
 		return err
 	}
 
-	group.Go(func() error {
-		log.Println("[FlushToDbLog] ticker starts to serve")
-		startFlushToDbTicker()
-		return nil
-	})
-
 	router := routers.SetupLandingRouter()
 	err = router.Run(addr...)
 	return err
 }
 
-func startFlushToDbTicker() {
+func startFlushDiffToDbTicker() {
 	flushToDbTicker := time.NewTicker(flushToDbInterval)
 	for range flushToDbTicker.C {
-		log.Println("[FlushToDbLog] Start.")
-		err := flushToDb()
+		log.Println("[flushDiffToDb] Start.")
+		err := flushDiffToDb()
 		if err != nil {
 			log.Printf("FlushToDbLog error %s", err)
 		}
-		log.Println("[FlushToDbLog] Finish.")
+		log.Println("[flushDiffToDb] Finish.")
 	}
 }

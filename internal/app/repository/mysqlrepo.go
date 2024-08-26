@@ -19,6 +19,23 @@ func GetShortLinkMySqRepo() *shortLinkMySqlRepository {
 	return shortLinkMySqlRepo
 }
 
+func (r *shortLinkMySqlRepository) DeleteByLinkId(linkId string) error {
+	mysqlDB, err := db.GetMySql()
+	if err != nil {
+		return err
+	}
+	stmt, err := mysqlDB.Prepare("DELETE FROM `short_link` where `link_id` = ? ")
+	if err != nil {
+		return err
+	}
+	defer stmt.Close()
+	_, err = stmt.Exec(linkId)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
 func (r *shortLinkMySqlRepository) SaveOrUpdate(link *models.ShortLink) error {
 	mysqlDB, err := db.GetMySql()
 	if err != nil {
@@ -104,6 +121,23 @@ func (r *userMySqlRepository) SaveOrUpdate(user *models.User2) error {
 		if err != nil {
 			return err
 		}
+	}
+	return nil
+}
+
+func (r *userMySqlRepository) DeleteByUsername(username string) error {
+	mysqlDB, err := db.GetMySql()
+	if err != nil {
+		return err
+	}
+	stmt, err := mysqlDB.Prepare("DELETE FROM `user` where `username` = ? ")
+	if err != nil {
+		return err
+	}
+	defer stmt.Close()
+	_, err = stmt.Exec(username)
+	if err != nil {
+		return err
 	}
 	return nil
 }

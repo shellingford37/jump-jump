@@ -8,8 +8,16 @@ func GetUserKey() string {
 	return "users"
 }
 
+func GetDiffUsersKey() string {
+	return "diff:users"
+}
+
 func GetShortLinkKey(id string) string {
 	return fmt.Sprintf("link:%s", id)
+}
+
+func GetDiffShortLinkKey() string {
+	return "diff:link"
 }
 
 func GetShortLinksKey() string {
