@@ -58,6 +58,16 @@ func Run(addr ...string) error {
 		return err
 	}
 
+	clearRedis()
+
+	flushToRedisFlag := os.Getenv("MYSQL_TO_REDIS")
+	if flushToRedisFlag == "true" {
+		err = flushToRedis()
+		if err != nil {
+			return err
+		}
+	}
+
 	flushToDbFlag := os.Getenv("REDIS_TO_MYSQL")
 	if flushToDbFlag == "true" {
 		err = flushToDb()

@@ -279,8 +279,10 @@ func ShortLinkActionAPI() gin.HandlerFunc {
 			}
 
 			endTime = time.Date(endTime.Year(), endTime.Month(), endTime.Day(), 23, 59, 59, 0, time.Local)
-			rhRepo := repository.GetRequestHistoryRepo(db.GetRedisClient())
-			rhs := rhRepo.FindByDateRange(s.Id, startTime, endTime)
+			//rhRepo := repository.GetRequestHistoryRepo(db.GetRedisClient())
+			//rhs := rhRepo.FindByDateRange(s.Id, startTime, endTime)
+			rhMySqlRepo := repository.GetShortLinkHistoryMySqlRepo()
+			rhs := rhMySqlRepo.FindByDateRange(s.Id, startTime, endTime)
 
 			c.JSON(http.StatusOK, models.NewSuccessResponse(&models.ShortLinkDataAPIResponseData{Histories: rhs}))
 			return

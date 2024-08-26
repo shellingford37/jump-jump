@@ -13,9 +13,10 @@ func CalcDailyReport(db *redis.Client, activeLink *models.ActiveLink) *dailyRepo
 	date := activeLink.Time
 	startTime := time.Date(date.Year(), date.Month(), date.Day(), 0, 0, 0, 0, date.Location())
 	endTime := startTime.AddDate(0, 0, 1)
-	rhRepo := repository.GetRequestHistoryRepo(db)
-
-	rhRs := rhRepo.FindByDateRange(activeLink.Id, startTime, endTime)
+	//rhRepo := repository.GetRequestHistoryRepo(db)
+	//rhRs := rhRepo.FindByDateRange(activeLink.Id, startTime, endTime)
+	rhMySqlRepo := repository.GetShortLinkHistoryMySqlRepo()
+	rhRs := rhMySqlRepo.FindByDateRange(activeLink.Id, startTime, endTime)
 	pv := len(rhRs)
 	ips := make([]string, 0)
 	operateSystems := make(map[string]int)
